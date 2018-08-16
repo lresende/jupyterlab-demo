@@ -58,7 +58,7 @@ def build(ctx, env_name=env_name, kernel=True):
         """.format(source, env_name).strip().replace('\n', ''))
     if kernel:
         ctx.run("{0!s} activate {1!s} && ipython kernel install --name {1!s} --display-name {1!s} --sys-prefix".format(source, env_name))
-
+        ctx.run("{0!s} activate {1!s} && jupyter toree install".format(source))
 
 @task
 def demofiles(ctx, clean=False, demofolder=demofolder):
@@ -121,6 +121,14 @@ def r(ctx, env_name=env_name):
     Installs the r kernel and associated libs.
     '''
     cmd = '{0!s} activate {1!s} && conda install -c conda-forge r-irkernel r-ggplot2'
+    ctx.run(cmd.format(source, env_name))
+
+@task
+def scala(ctx, env_name=env_name):
+    '''
+    Installs the Apache Toree kernel and associated libs.
+    '''
+    cmd = '{0!s} activate {1!s} && pip install --upgrade toree'
     ctx.run(cmd.format(source, env_name))
 
 

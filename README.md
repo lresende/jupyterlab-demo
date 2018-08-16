@@ -74,6 +74,14 @@ To add R language support, run:
 invoke r
 ```
 
+### Scala Language support
+
+To add Scala language support, run:
+
+```bash
+invoke scala
+```
+
 ### Julia Language support
 
 To add Julia language support follow the instructions [here](https://github.com/JuliaLang/IJulia.jl#installation).
